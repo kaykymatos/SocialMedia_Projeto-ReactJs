@@ -1,0 +1,10 @@
+.list_style {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #6cee6c;   
+  }
+  
+  .list_style li {
+    margin: 0 1em;
+  }

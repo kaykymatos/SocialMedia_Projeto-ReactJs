@@ -1,11 +1,8 @@
-import { Link } from "react-router-dom";
-import styles from "./css/Header.module.css";
-
-function Header() {
-  return (
-    <header>
-      <nav>
-        <ul className={styles.header_style}>
+import {Link} from 'react-router-dom';
+import styles from './css/PageLinks.module.css'
+function PageLinks() {
+    return (
+        <ul className={styles.list_style}>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -22,9 +19,7 @@ function Header() {
             <Link to="/login">Login</Link>
           </li>
         </ul>
-      </nav>
-    </header>
-  );
+      );
 }
 
-export default Header;
+export default PageLinks;
