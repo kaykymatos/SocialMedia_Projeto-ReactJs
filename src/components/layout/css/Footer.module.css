@@ -1,0 +1,19 @@
+.footerlist_style {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.footer_style {
+  background-color: #6cee6c;
+  padding: 2em;
+}
+
+.footerlist_style li {
+  margin: 0 1em;
+}
+
+.footerlist_style svg {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #dd5a5a;
+}
