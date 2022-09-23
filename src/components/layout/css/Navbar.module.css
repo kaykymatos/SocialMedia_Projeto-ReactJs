@@ -1,19 +1,12 @@
-.navbar_style {
-  background-color: #518d51;
-  width: 100%;
-}
-
-.list_style {
+.links_style {
   display: flex;
   justify-content: center;
   list-style-type: none;
-  padding: 2em;
+  padding: 10px;
 }
 
-.list_style li {
-  margin: 0 1em;
-}
-.list_style a {
+.links_style a {
   text-decoration: none;
-  color: #080707;
+  color: #ffff;
+  margin-left: 10px;
 }
