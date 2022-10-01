@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <NavbarLayout />
-
       <div className="container-fluid h-75">
         <PageRoutes />
       </div>

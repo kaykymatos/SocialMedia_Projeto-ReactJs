@@ -1,0 +1,11 @@
+.btn_cadastrar{
+    background-color: #5f77c5;
+    color: #000000;
+    border-radius: 5px;
+    width: 30%;
+    height: 5vh;
+    margin-top: 2vh;
+}
+.form_style form{
+    margin-top: 10vh;
+}
