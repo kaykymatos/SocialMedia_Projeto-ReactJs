@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 function CreateAccountForm() {
   const url = "https://localhost:5001/api/user/";
   const history = useNavigate();
-  
-  function enviarForm(e) {    
+
+  function enviarForm(e) {
     e.preventDefault();
-    
+    console.log(state);
     axios
-      .post(url, user)
+      .post(url, state)
       .then((response) => {
         console.log(JSON.stringify(response.status));
         alert("Usuário cadastrado com sucesso!");
@@ -22,16 +22,13 @@ function CreateAccountForm() {
       );
   }
 
-  const [nome, setNome] = useState();
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
+  const [state, setState] = useState();
 
-  const user = {
-    nome: nome,
-    email: email,
-    senha: senha,
-  };
- 
+  function handleChange(e) {
+    setState({...state, [e.target.name]:e.target.value});
+    console.log(state);
+  }
+
   return (
     <div className={`row ${styles.form_style}`}>
       <div className="col-12 col-md-12 col-lg-4 col-xl-4"></div>
@@ -40,11 +37,12 @@ function CreateAccountForm() {
           <div className="form-group col-12">
             <label htmlFor="nome">Nome</label>
             <input
-              type="bome"
+              type="text"
               className="form-control"
               id="nome"
               placeholder="Nome"
-              onChange={(e) => setNome(e.target.value)}
+              name="name"
+              onChange={handleChange}
             />
           </div>
           <div className="form-group col-12">
@@ -54,7 +52,8 @@ function CreateAccountForm() {
               className="form-control"
               id="email"
               placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              onChange={handleChange}
             />
           </div>
           <div className="form-group col-12">
@@ -64,10 +63,11 @@ function CreateAccountForm() {
               className="form-control"
               id="senha"
               placeholder="Senha"
-              onChange={(e) => setSenha(e.target.value)}
+              name="senha"
+              onChange={handleChange}
             />
           </div>
-          
+
           <input
             type="submit"
             className={styles.btn_cadastrar}
