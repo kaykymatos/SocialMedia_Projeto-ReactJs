@@ -1,17 +1,33 @@
 import React, { useState } from "react";
-import styles from "./css/LoginForm.module.css"
+import styles from "./css/LoginForm.module.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const url = "https://localhost:5001/api/User/Login";
+  const history = useNavigate();
+
   function enviarForm(e) {
     e.preventDefault();
-    console.log("form de login enviado"+email+senha);
+    axios
+      .post(url, state)
+      .then((response) => {
+        console.log(JSON.stringify(response.status));
+        history("/");
+      })
+      .catch((error) =>
+        alert("Ocorreu um erro ao enviar o usuário: " + error.message)
+      );
   }
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
+  const [state, setState] = useState();
+
+  function handleChange(e) {
+    setState({ ...state, [e.target.name]: e.target.value });
+    console.log(state);
+  }
   return (
-   
     <div className={`row ${styles.login_form_style}`}>
-       <div className="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4"></div>
+      <div className="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4"></div>
 
       <div className="col-12 col-md-12 col-lg-4 col-xl-4">
         <form onSubmit={enviarForm}>
@@ -21,8 +37,9 @@ function LoginForm() {
               type="email"
               className="form-control"
               id="email"
+              name="email"
               placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
             />
           </div>
           <div className="form-group col-12">
@@ -31,8 +48,9 @@ function LoginForm() {
               type="password"
               className="form-control"
               id="senha"
+              name="senha"
               placeholder="Senha"
-              onChange={(e) => setSenha(e.target.value)}
+              onChange={handleChange}
             />
           </div>
 

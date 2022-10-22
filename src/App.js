@@ -6,6 +6,7 @@ import PageRoutes from "./components/routes/PageRoutes";
 function App() {
   return (
     <Router>
+            
       <NavbarLayout />
       <div className="container-fluid h-75">
         <PageRoutes />

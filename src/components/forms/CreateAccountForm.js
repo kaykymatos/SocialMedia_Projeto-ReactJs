@@ -4,17 +4,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function CreateAccountForm() {
-  const url = "https://localhost:5001/api/user/";
+  const url = "https://localhost:5001/api/User/Cadastrar";
   const history = useNavigate();
 
   function enviarForm(e) {
     e.preventDefault();
-    console.log(state);
     axios
       .post(url, state)
       .then((response) => {
-        console.log(JSON.stringify(response.status));
-        alert("Usuário cadastrado com sucesso!");
+        console.log(JSON.stringify(response.status));       
         history("/");
       })
       .catch((error) =>
@@ -41,7 +39,7 @@ function CreateAccountForm() {
               className="form-control"
               id="nome"
               placeholder="Nome"
-              name="name"
+              name="nome"
               onChange={handleChange}
             />
           </div>

@@ -6,7 +6,7 @@ import styles from "./css/Navbar.module.css";
 
 function NavbarLayout() {
   return (
-    <Navbar collapseOnSelect expand="lg"  bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Nav className={styles.links_style}>
           <Nav.Item>
